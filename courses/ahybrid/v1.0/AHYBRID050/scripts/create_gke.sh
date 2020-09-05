@@ -23,7 +23,8 @@ gcloud beta container clusters create ${C1_NAME} \
     --workload-pool=${WORKLOAD_POOL} \
     --enable-stackdriver-kubernetes \
     --subnetwork=default \
-    --labels mesh_id=${MESH_ID}
+    --labels mesh_id=${MESH_ID} \
+    --release-channel=regular
 
 # service account requires additional role bindings
 kubectl create clusterrolebinding [BINDING_NAME] \
@@ -49,9 +50,9 @@ curl --request POST \
   https://meshconfig.googleapis.com/v1alpha1/projects/${PROJECT_ID}:initialize
 
 
-curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.6.5-asm.7-linux-amd64.tar.gz
-tar xzf istio-1.6.5-asm.7-linux-amd64.tar.gz
-cd istio-1.6.5-asm.7
+curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.6.8-asm.9-linux-amd64.tar.gz
+tar xzf istio-1.6.8-asm.9-linux-amd64.tar.gz
+cd istio-1.6.8-asm.9
 export PATH=$PWD/bin:$PATH
 
 kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/. asm
