@@ -55,7 +55,7 @@ tar xzf istio-1.6.8-asm.9-linux-amd64.tar.gz
 cd istio-1.6.8-asm.9
 export PATH=$PWD/bin:$PATH
 
-kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/. asm
+kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/asm@release-1.6-asm asm
 
 cd asm
 kpt cfg set asm gcloud.container.cluster ${C1_NAME}
