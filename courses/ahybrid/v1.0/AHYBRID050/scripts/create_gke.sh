@@ -70,7 +70,7 @@ gcloud container clusters get-credentials $C1_NAME \
     --zone $C1_ZONE --project $PROJECT_ID
 
 # Install Istio + Enable tracing with Cloud Trace
-istioctl install -f asm/istio/istio-operator.yaml -f $LAB_DIR/training-data-analyst/courses/ahybrid/v1.0/AHYBRID050/scripts/tracing.yaml
+istioctl install -f asm/cluster/istio-operator.yaml -f $LAB_DIR/training-data-analyst/courses/ahybrid/v1.0/AHYBRID050/scripts/tracing.yaml
 
 # Enable the Anthos Service Mesh UI in Cloud Console
 kubectl apply -f asm/canonical-service/controller.yaml
