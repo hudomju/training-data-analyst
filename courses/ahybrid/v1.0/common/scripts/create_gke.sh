@@ -24,7 +24,7 @@ gcloud beta container clusters create ${C1_NAME} \
     --image-type "COS" \
     --release-channel "regular" \
     --machine-type=n1-standard-4 \
-    --num-nodes=4 \
+    --num-nodes=${C1_NODES} \
     --workload-pool=${WORKLOAD_POOL} \
     --enable-stackdriver-kubernetes \
     --metadata disable-legacy-endpoints=true \

@@ -22,6 +22,7 @@ export PROJECT_ID=$(gcloud config get-value project)
 # gke cluster values
 export C1_NAME="cluster-1"
 export C1_ZONE="us-east1-b"
+export C1_NODES=3
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
 export WORKLOAD_POOL=${PROJECT_ID}.svc.id.goog

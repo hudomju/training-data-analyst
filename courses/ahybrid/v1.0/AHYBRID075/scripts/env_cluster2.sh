@@ -17,5 +17,6 @@
 # gke cluster values
 export C1_NAME="cluster-2"
 export C1_ZONE="us-central1-b"
+export C1_NODES=3
 
 gcloud config set compute/zone C1_ZONE
