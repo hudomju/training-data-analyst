@@ -16,12 +16,26 @@
 
 gcloud config set compute/zone ${C1_ZONE}
 gcloud beta container clusters create ${C1_NAME} \
+    --no-enable-basic-auth \
+    --enable-autoupgrade \
+    --max-surge-upgrade 1 \
+    --max-unavailable-upgrade 0 \
+    --enable-autorepair \
+    --image-type "COS" \
+    --release-channel "regular" \
     --machine-type=n1-standard-4 \
     --num-nodes=4 \
     --workload-pool=${WORKLOAD_POOL} \
     --enable-stackdriver-kubernetes \
+    --metadata disable-legacy-endpoints=true \
+    --labels mesh_id=${MESH_ID} \
+    --addons HorizontalPodAutoscaling,HttpLoadBalancing \
+    --default-max-pods-per-node "110" \
+    --enable-ip-alias \
+    --no-enable-master-authorized-networks \
     --subnetwork=default \
-    --labels mesh_id=${MESH_ID}
+    --scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append"
+
 
 # service account requires additional role bindings
 kubectl create clusterrolebinding [BINDING_NAME] \
