@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-gcloud config set compute/zone ${C1_ZONE}
 gcloud beta container clusters create ${C1_NAME} \
+    --zone ${C1_ZONE} \
     --no-enable-basic-auth \
     --enable-autoupgrade \
     --max-surge-upgrade 1 \
