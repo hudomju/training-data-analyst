@@ -34,7 +34,7 @@ gcloud beta container clusters create ${C1_NAME} \
     --enable-ip-alias \
     --no-enable-master-authorized-networks \
     --subnetwork=default \
-    --scopes ${C1_SCOPE}
+    --scopes ${C1_SCOPE} \
     --tags=${C1_TAG}
 
 
