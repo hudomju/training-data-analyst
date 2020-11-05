@@ -24,6 +24,7 @@ export C1_NAME="migrate-processing"
 export C1_ZONE="us-central1-f"
 export C1_NODES=1
 export C1_SCOPE="cloud-platform"
+export C1_TAG="http-server"
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} \
     --format="value(projectNumber)")
 export WORKLOAD_POOL=${PROJECT_ID}.svc.id.goog

@@ -35,6 +35,7 @@ gcloud beta container clusters create ${C1_NAME} \
     --no-enable-master-authorized-networks \
     --subnetwork=default \
     --scopes ${C1_SCOPE}
+    --tags=${C1_TAG}
 
 
 # service account requires additional role bindings
